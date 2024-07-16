@@ -51,7 +51,7 @@ const Navbar = () => {
                         <li><NavLink className={"font-semibold"} to={'/mylist'}>My Cruft List</NavLink></li>
                     </ul>
                 </div>
-                <h1 className="text-3xl text-orange-800 bg-orange-400 md:text-center"><span className="text-2xl text-green-600">a</span>rtigianato <span className="text-2xl text-green-600">d</span>i <span className="text-2xl text-green-600">l</span>egno</h1>
+                <h1 className="text-3xl text-orange-800 bg-orange-400 md:text-center font-Almendra"><span className="text-2xl text-green-600">a</span>rtigianato <span className="text-2xl text-green-600">d</span>i <span className="text-2xl text-green-600">l</span>egno</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
