@@ -9,6 +9,7 @@ import Addcruft from "../Pages/Addcruft";
 import Mylist from "../Pages/Mylist";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import PrivateRouters from "../../Apps/PrivateRouters";
 
 export const router = createBrowserRouter([
     {
@@ -37,11 +38,11 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/addcruft',
-                element:<Addcruft></Addcruft>
+                element:<PrivateRouters><Addcruft></Addcruft></PrivateRouters>
             },
             {
                 path:'/mylist',
-                element:<Mylist></Mylist>
+                element:<PrivateRouters><Mylist></Mylist></PrivateRouters>
             },
             {
                 path:'/woodhome',

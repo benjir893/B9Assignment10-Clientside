@@ -1,29 +1,78 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Apps/Authprovider";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
-    const handleRegister=(e)=>{
+    const { createUser, loginwithGoogle, loginwithGithub } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [showpass, setShowpass] = useState(false);
+
+    const handleRegister = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
         const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        const user = {name, photo, email, password,};
+        const user = { name, photo, email, password, };
         console.log(user)
+
+        if (password.length < 6) {
+            Swal.fire("password must be minimum 6 digits with upper and lower case latter");
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            Swal.fire("Upper case latter is missing!");
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            Swal.fire("Lower case latter is missing!");
+            return;
+        }
+        else if (!/\d/.test(password)) {
+            Swal.fire("Number is missing !");
+            return;
+        }
+
+
         createUser(email, password)
-        .then(userCredential =>{
-            console.log(userCredential.user);
-            alert('user created successfully')
-        })
-        .catch(error=>{
-            console.error(error)
-        })
+            .then(userCredential => {
+                console.log(userCredential.user);
+                Swal.fire("A new User added Successfully!");
+                e.target.reset()
+                navigate('/')
+            })
+            .catch(error => {
+                console.error(error)
+            })
 
 
+    }
+    const handleGoogleLogin = e => {
+        e.preventDefault();
+        loginwithGoogle()
+            .then(userCredential => {
+                console.log(userCredential.user)
+                navigate('/')
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+    const handleloginwithGithub = e => {
+        e.preventDefault();
+        loginwithGithub()
+            .then(userCredential => {
+                console.log(userCredential.user)
+                navigate('/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 
     return (
@@ -34,12 +83,12 @@ const Register = () => {
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <form onSubmit={handleRegister} className="card-body">
-                        <div className="md:grid grid-cols-2 gap-4">
+                        <div className="">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name="name" placeholder="email" className="input input-bordered" required />
+                                <input type="text" name="name" placeholder="name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -57,14 +106,20 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                <div className="md:flex items-center">
+                                    <input type={showpass ? "text" : "password"} name="password" placeholder="password" className="input input-bordered" required /><span className=" ml-30" onClick={()=>setShowpass(!showpass)}>
+                                        {
+                                            showpass? <FaRegEye /> : <FaRegEyeSlash />
+                                        }
+                                    </span>
+                                </div>
                                 <label className="label">
                                     <Link className="label-text-alt link link-hover text-orange-500" to={'/login'}>Back to log in?</Link>
                                 </label>
                             </div>
                         </div>
                         <div className="form-control">
-                            <Link >log in with <button className="label-text-alt link link-hover text-orange-500">Google</button> ? or <button className="label-text-alt link link-hover text-orange-500">GitHub</button> ?</Link>
+                            <Link >Instead log in with <button className="label-text-alt link link-hover text-orange-500" onClick={handleGoogleLogin}>Google</button> ? or <button onClick={handleloginwithGithub} className="label-text-alt link link-hover text-orange-500">GitHub</button> ?</Link>
                         </div>
                         <div className="form-control mt-3">
                             <button className="btn btn-primary">Register</button>
