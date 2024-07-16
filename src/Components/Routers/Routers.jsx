@@ -43,14 +43,7 @@ export const router = createBrowserRouter([
                 path:'/mylist',
                 element:<Mylist></Mylist>
             },
-            {
-                path:'/woodhome',
-                element:<Woodencruft></Woodencruft>
-            },
-            {
-                path:'/jutecruft',
-                element:<Jutecruft></Jutecruft>
-            }
+            
         ]
     }
 ])
