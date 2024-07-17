@@ -16,7 +16,7 @@ const Header = () => {
                     <h1 className="text-orange-600 font-Almendra font-semibold text-2xl md:text-center">The Art of Woodworking Redefined</h1>
                     <h2 className="font-popMocy text-center">{moment().format("dddd, MMMM, Do, YYYY")}</h2>
                     <div className="p-5">
-                        <Marquee className="text-green-500 font-Almendra text-xl">
+                        <Marquee className="text-green-500 font-bungee text-xl">
                             Beautiful Woodwork, Beautiful Spaces
                         </Marquee>
                     </div>

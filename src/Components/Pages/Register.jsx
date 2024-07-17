@@ -4,6 +4,7 @@ import { AuthContext } from "../../Apps/Authprovider";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -77,6 +78,9 @@ const Register = () => {
 
     return (
         <div className="hero bg-base-200">
+            <Helmet>
+                <title>W&J/Register</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-grow-0">
                 <div className="text-center mb-4">
                     <h1 className="text-5xl font-bold">Registration</h1>
@@ -107,9 +111,9 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <div className="md:flex items-center">
-                                    <input type={showpass ? "text" : "password"} name="password" placeholder="password" className="input input-bordered" required /><span className=" ml-30" onClick={()=>setShowpass(!showpass)}>
+                                    <input type={showpass ? "text" : "password"} name="password" placeholder="password" className="input input-bordered" required /><span className=" ml-30" onClick={() => setShowpass(!showpass)}>
                                         {
-                                            showpass? <FaRegEye /> : <FaRegEyeSlash />
+                                            showpass ? <FaRegEye /> : <FaRegEyeSlash />
                                         }
                                     </span>
                                 </div>

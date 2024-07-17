@@ -2,34 +2,38 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Apps/Authprovider";
 import Swal from 'sweetalert2';
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
-    const {loginUser} = useContext(AuthContext);
+    const { loginUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleLogin= e =>{
+    const handleLogin = e => {
         e.preventDefault();
 
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
-        const password =form.get('password');
-        const user = {email, password};
+        const password = form.get('password');
+        const user = { email, password };
         console.log(user)
 
         loginUser()
-        .then(userCredential =>{
-            console.log(userCredential.user);
-            navigate('/')
-        })
-        .catch(error =>{
-            console.error(error);
-            Swal.fire("User doesn't exits/wrong password");
-        })
+            .then(userCredential => {
+                console.log(userCredential.user);
+                navigate('/')
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire("User doesn't exits/wrong password");
+            })
     }
 
     return (
         <div className="hero bg-base-200">
+            <Helmet>
+                <title>W&J/Login</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-grow-0">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold">Login now!</h1>

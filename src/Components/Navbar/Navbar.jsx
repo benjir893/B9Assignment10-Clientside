@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Apps/Authprovider";
+import { Helmet } from "react-helmet-async";
 
 
 const Navbar = () => {
@@ -97,7 +98,7 @@ const Navbar = () => {
                 {
                     user ? <>
                         <p className="font-Almendra text-blue-800 pr-1 font-semibold">{user.email}</p>
-                        <img className="w-10 rounded-full" src="https://i.ibb.co/z5qBkQL/vegetable-Curry.jpg" alt="" />
+                        <img className="w-10 rounded-full mr-1" src="https://i.ibb.co/z5qBkQL/vegetable-Curry.jpg" alt="" />
                         <button className="btn btn-outline bg-orange-500 text-white hover:bg-orange-800 hover:text-blue-100"><Link onClick={handleLogOut}>SignOut</Link></button>
                     </> : <button className="btn btn-outline bg-orange-500 text-white hover:bg-orange-800 hover:text-blue-100"><Link to={'/login'}>SignIn</Link></button>
                 }

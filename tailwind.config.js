@@ -9,7 +9,8 @@ export default {
       fontFamily:{
         poppins:'"Poppins", sans-serif',
         popMocy:'"Mochiy Pop One", sans-serif',
-        Almendra: '"Almendra SC", serif'
+        Almendra: '"Almendra SC", serif',
+        bungee:'"Bungee Spice", sans-serif',
       }
     },
   },
