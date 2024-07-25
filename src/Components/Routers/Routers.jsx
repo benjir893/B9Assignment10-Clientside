@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
             {
                 path:'/allarts',
                 element:<Allarts></Allarts>,
-                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft')
+                loader:()=>fetch('http://localhost:5000/addcruft')
             },
             {
                 path:'/about',
@@ -50,37 +50,37 @@ export const router = createBrowserRouter([
             {
                 path:'/editcruft/:id',
                 element:<Editcruft></Editcruft>,
-                loader:({params})=>fetch(`https://b9-assignment10-server-side.vercel.app/addcruft/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/addcruft/${params.id}`)
             },
             {
                 path:'/viewdetails/:id',
                 element:<Viewdetails></Viewdetails>,
-                loader:({params})=>fetch(`https://b9-assignment10-server-side.vercel.app/addcruft/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/addcruft/${params.id}`)
             },
             {
                 path:'/mylist',
-                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft'),
+                loader:()=>fetch('http://localhost:5000/addcruft'),
                 element:<PrivateRouters><Mylist></Mylist></PrivateRouters>,
             },
             {
                 path:'/woodhome',
-                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft'),
+                loader:()=>fetch('http://localhost:5000/addcruft'),
                 element:<Woodencruft></Woodencruft>,
             },
             {
                 path:'/jutecruft',
                 element:<Jutecruft></Jutecruft>,
-                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft')
+                loader:()=>fetch('http://localhost:5000/addcruft')
             },
             {
                 path:'/users',
                 element:<Users></Users>,
-                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/users'),
+                loader:()=>fetch('http://localhost:5000/users'),
             },
             {
                 path:'/users/:id',
                 element:<Navbar></Navbar>,
-                loader:({params})=>fetch(`https://b9-assignment10-server-side.vercel.app/users/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`)
             }
             
         ]

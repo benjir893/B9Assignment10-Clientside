@@ -45,7 +45,7 @@ const Register = () => {
                 console.log(userCredential.user);
                 const createdat = userCredential.user?.metadata?.creationTime;
                 const user = {name, photo, email, createdat}
-                fetch('https://b9-assignment10-server-side.vercel.app/users',{
+                fetch('http://localhost:5000/users',{
                     method:'POST',
                     headers:{
                         'content-type': 'application/json'

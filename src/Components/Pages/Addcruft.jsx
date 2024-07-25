@@ -22,7 +22,7 @@ const Addcruft = () => {
         const newItem = { email, name, catselect, madeof, quantity, photo, price, descripion };
         console.log(newItem)
         //fetching data for server side
-        fetch('https://b9-assignment10-server-side.vercel.app/addcruft', {
+        fetch('http://localhost:5000/addcruft', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

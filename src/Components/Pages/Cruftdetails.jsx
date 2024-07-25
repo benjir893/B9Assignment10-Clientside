@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 
-const Cruftdetails = ({ cruft}) => {
+const Cruftdetails = ({cruft}) => {
     const { _id, name, catselect, madeof, quantity, photo, price, descripion } = cruft;
     return (
         <div>

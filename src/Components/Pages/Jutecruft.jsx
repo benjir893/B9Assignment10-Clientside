@@ -18,7 +18,7 @@ const Jutecruft = () => {
 
             <div className="md:grid grid-cols-2 gap-3 mt-10 mb-10 p-5">
                 {
-                    juteprods.map(juteprod => <Jutecruftdisplay key={juteprod._id} juteprod={juteprod}></Jutecruftdisplay>)
+                    Array.isArray(juteprods)&&juteprods?.map(juteprod => <Jutecruftdisplay key={juteprod._id} juteprod={juteprod}></Jutecruftdisplay>)
                 }
             </div>
         </div>

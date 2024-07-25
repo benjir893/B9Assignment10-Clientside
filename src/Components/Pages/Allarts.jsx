@@ -6,7 +6,7 @@ import Cruftdetails from './Cruftdetails';
 
 const Allarts = () => {
     const addedcrufts = useLoaderData();
-    const [crufts, setCrufts] = useState([addedcrufts]);
+    const [crufts, setCrufts] = useState(addedcrufts);
     return (
         <div>
             <Helmet>
@@ -15,10 +15,7 @@ const Allarts = () => {
             <h1 className="text-center font-popMocy text-orange-600 font-semibold text-2xl m-4">Our Collections</h1>
             <div className="grid md:grid-cols-2 gap-3">
                 {
-                    crufts?.map(cruft =><Cruftdetails key={cruft._id}
-                        cruft={cruft}
-                        crufts={crufts}
-                        setCrufts={setCrufts}></Cruftdetails>)
+                    Array.isArray(crufts)&&crufts?.map(cruft =><Cruftdetails key={cruft._id} cruft={cruft} setCrufts={setCrufts}></Cruftdetails>)
                 }
             </div>
         </div>

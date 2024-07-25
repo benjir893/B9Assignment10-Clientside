@@ -16,7 +16,7 @@ const Woodencruft = () => {
             <h1 className="font-Almendra font-semibold text-orange-600 text-2xl text-center mt-10">WOODEN CRUFTS </h1>
             <div className="md:grid grid-cols-2 gap-3 mt-10 mb-10 p-5">
                 {
-                    woodprods.map(woodprod => <Woodcruftdisplay key={woodprod._id} woodprod={woodprod}></Woodcruftdisplay>)
+                    Array.isArray(woodprods)&& woodprods?.map(woodprod => <Woodcruftdisplay key={woodprod._id} woodprod={woodprod}></Woodcruftdisplay>)
                 }
             </div>
         </div>
