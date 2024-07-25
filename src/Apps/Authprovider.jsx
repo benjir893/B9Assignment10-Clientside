@@ -20,29 +20,29 @@ const Authprovider = ({ children }) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
-    const loginwithGoogle=()=>{
+    const loginwithGoogle = () => {
         setLoading(true)
-       return signInWithPopup(auth, googleauthprovider);
+        return signInWithPopup(auth, googleauthprovider);
     }
-    const loginwithGithub=()=>{
+    const loginwithGithub = () => {
         setLoading(true);
         return signInWithPopup(auth, githubauthprovider);
     }
-    const logout=()=>{
+    const logout = () => {
         setLoading(true);
         return signOut(auth);
     }
 
-    useEffect(()=>{
-       const unSubscribe =  onAuthStateChanged(auth, currentUser =>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user is in auth state: ', currentUser);
             setUser(currentUser);
             setLoading(false)
-       })
-       return ()=>{
+        })
+        return () => {
             unSubscribe();
-       }
-    },[])
+        }
+    }, [])
 
     const authinfo = {
         user,
@@ -63,7 +63,7 @@ const Authprovider = ({ children }) => {
     );
 };
 
-Authprovider.propTypes ={
+Authprovider.propTypes = {
     children: PropTypes.object
 }
 export default Authprovider;

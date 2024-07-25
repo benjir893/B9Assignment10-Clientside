@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Apps/Authprovider";
-import { Helmet } from "react-helmet-async";
+
 
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
+   
 
     const handleLogOut = () => {
         logout()
@@ -42,8 +43,8 @@ const Navbar = () => {
                         <li>
                             {/* <a>Parent</a> */}
                             <NavLink className={"font-semibold"} to={'/allarts'}>All Arts & Crufts</NavLink>
-                            <ul className="p-2">
-                                <li><NavLink className={"font-semibold"} to={'/woodhome'}>Wooden&Cruft</NavLink></li>
+                            <ul className="p-2 z-10">
+                                <li><NavLink className={"font-semibold"} to={'/woodhome'}>Wooden Cruft</NavLink></li>
                                 <li><NavLink className={"font-semibold"} to={'/jutecruft'}>Jute Crufts</NavLink></li>
                             </ul>
                         </li>
@@ -62,8 +63,8 @@ const Navbar = () => {
                             <li>
                                 <details>
                                     <summary><NavLink className={"font-semibold"} to={'/allarts'}>All Arts & Crufts</NavLink></summary>
-                                    <ul className="p-2">
-                                        <li><NavLink className={"font-semibold"} to={'/woodhome'}>Wooden&Cruft</NavLink></li>
+                                    <ul className="p-2 z-10">
+                                        <li><NavLink className={"font-semibold"} to={'/woodhome'}>Wooden Cruft</NavLink></li>
                                         <li><NavLink className={"font-semibold"} to={'/jutecruft'}>Jute Crufts</NavLink></li>
 
                                     </ul>
@@ -80,8 +81,8 @@ const Navbar = () => {
                             <li>
                                 <details>
                                     <summary><NavLink className={"font-semibold"} to={'/allarts'}>All Arts & Crufts</NavLink></summary>
-                                    <ul className="p-2">
-                                        <li><NavLink className={"font-semibold"} to={'/woodhome'}>Wooden&Cruft</NavLink></li>
+                                    <ul className="p-2 z-10">
+                                        <li><NavLink className={"font-semibold"} to={'/woodhome'}>Wooden Cruft</NavLink></li>
                                         <li><NavLink className={"font-semibold"} to={'/jutecruft'}>Jute Crufts</NavLink></li>
 
                                     </ul>
@@ -95,10 +96,11 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+               
                 {
                     user ? <>
                         <p className="font-Almendra text-blue-800 pr-1 font-semibold">{user.email}</p>
-                        <img className="w-10 rounded-full mr-1" src="https://i.ibb.co/z5qBkQL/vegetable-Curry.jpg" alt="" />
+                        {/* <img className="w-10 rounded-full mr-1" src={user.photo} alt="" /> */}
                         <button className="btn btn-outline bg-orange-500 text-white hover:bg-orange-800 hover:text-blue-100"><Link onClick={handleLogOut}>SignOut</Link></button>
                     </> : <button className="btn btn-outline bg-orange-500 text-white hover:bg-orange-800 hover:text-blue-100"><Link to={'/login'}>SignIn</Link></button>
                 }

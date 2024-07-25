@@ -1,13 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Apps/Authprovider";
 import Swal from 'sweetalert2';
 import { Helmet } from "react-helmet-async";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
     const { loginUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [showpass, setShowpass] = useState(false);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -18,7 +20,7 @@ const Login = () => {
         const user = { email, password };
         console.log(user)
 
-        loginUser()
+        loginUser(email, password)
             .then(userCredential => {
                 console.log(userCredential.user);
                 navigate('/')
@@ -50,7 +52,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                            <div className="md:flex items-center">
+                                <input type={showpass ? "text" : "password"} name="password" placeholder="password" className="input input-bordered" required /><span className=" ml-30" onClick={() => setShowpass(!showpass)}>
+                                    {
+                                        showpass ? <FaRegEye /> : <FaRegEyeSlash />
+                                    }
+                                </span>
+                            </div>
                             <label className="label">
                                 <Link className="label-text-alt link link-hover text-orange-500" to={'/register'}>yet to Register?</Link>
                             </label>

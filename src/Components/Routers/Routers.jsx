@@ -10,6 +10,10 @@ import Mylist from "../Pages/Mylist";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRouters from "../../Apps/PrivateRouters";
+import Editcruft from "../Pages/Editcruft";
+import Viewdetails from "../Pages/Viewdetails";
+import Users from "../Pages/Users";
+import Navbar from "../Navbar/Navbar";
 
 export const router = createBrowserRouter([
     {
@@ -18,11 +22,14 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Home></Home>
+                element:<Home></Home>,
+                
+                
             },
             {
                 path:'/allarts',
-                element:<Allarts></Allarts>
+                element:<Allarts></Allarts>,
+                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft')
             },
             {
                 path:'/about',
@@ -41,16 +48,39 @@ export const router = createBrowserRouter([
                 element:<PrivateRouters><Addcruft></Addcruft></PrivateRouters>
             },
             {
+                path:'/editcruft/:id',
+                element:<Editcruft></Editcruft>,
+                loader:({params})=>fetch(`https://b9-assignment10-server-side.vercel.app/addcruft/${params.id}`)
+            },
+            {
+                path:'/viewdetails/:id',
+                element:<Viewdetails></Viewdetails>,
+                loader:({params})=>fetch(`https://b9-assignment10-server-side.vercel.app/addcruft/${params.id}`)
+            },
+            {
                 path:'/mylist',
-                element:<PrivateRouters><Mylist></Mylist></PrivateRouters>
+                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft'),
+                element:<PrivateRouters><Mylist></Mylist></PrivateRouters>,
             },
             {
                 path:'/woodhome',
-                element:<Woodencruft></Woodencruft>
+                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft'),
+                element:<Woodencruft></Woodencruft>,
             },
             {
                 path:'/jutecruft',
-                element:<Jutecruft></Jutecruft>
+                element:<Jutecruft></Jutecruft>,
+                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/addcruft')
+            },
+            {
+                path:'/users',
+                element:<Users></Users>,
+                loader:()=>fetch('https://b9-assignment10-server-side.vercel.app/users'),
+            },
+            {
+                path:'/users/:id',
+                element:<Navbar></Navbar>,
+                loader:({params})=>fetch(`https://b9-assignment10-server-side.vercel.app/users/${params.id}`)
             }
             
         ]

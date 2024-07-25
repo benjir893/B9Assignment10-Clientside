@@ -19,8 +19,8 @@ const Register = () => {
         const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        const user = { name, photo, email, password, };
-        console.log(user)
+        const newuser = { name, photo, email, password, };
+        console.log(newuser)
 
         if (password.length < 6) {
             Swal.fire("password must be minimum 6 digits with upper and lower case latter");
@@ -43,9 +43,24 @@ const Register = () => {
         createUser(email, password)
             .then(userCredential => {
                 console.log(userCredential.user);
-                Swal.fire("A new User added Successfully!");
-                e.target.reset()
-                navigate('/')
+                const createdat = userCredential.user?.metadata?.creationTime;
+                const user = {name, photo, email, createdat}
+                fetch('https://b9-assignment10-server-side.vercel.app/users',{
+                    method:'POST',
+                    headers:{
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user),
+                })
+                .then(res=> res.json())
+                .then(data=>{
+                    console.log(data)
+                    if(data.insertedId){
+                        Swal.fire("A new User added Successfully!");
+                        e.target.reset()
+                        navigate('/')
+                    }
+                })
             })
             .catch(error => {
                 console.error(error)
