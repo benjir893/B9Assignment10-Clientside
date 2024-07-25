@@ -23,7 +23,7 @@ const Mylist = () => {
             <div className="md:grid grid-cols-2 gap-1 p-2 mt-10 mb-10">
                 {
                     
-                    myitems.map(cruft => <Mylistdetails key={cruft._id} cruft={cruft} crufts={crufts} setCrufts={setCrufts} ></Mylistdetails>)
+                    Array.isArray(myitems) && myitems?.map(cruft => <Mylistdetails key={cruft._id} cruft={cruft} crufts={crufts} setCrufts={setCrufts} ></Mylistdetails>)
                 }
             </div>
         </div>
