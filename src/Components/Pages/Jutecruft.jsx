@@ -8,7 +8,7 @@ const Jutecruft = () => {
     const madeof = "Jute Fiber made"
     const loadedjutecrufts = useLoaderData();
     // const [jutecrufts, setJutecrufts]=useState(loadedjutecrufts);
-    const juteprods = loadedjutecrufts?.filter(jutecruft => jutecruft?.madeof === madeof)
+    const juteprods = Array.isArray(loadedjutecrufts) && loadedjutecrufts?.filter(jutecruft => jutecruft?.madeof === madeof)
 
     return (
         <div>

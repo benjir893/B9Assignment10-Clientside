@@ -6,7 +6,7 @@ import Woodcruftdisplay from "./Woodcruftdisplay";
 const Woodencruft = () => {
     const madeof = "Wood made";
     const woodcrufts = useLoaderData();
-    const woodprods = woodcrufts.filter(woodcruft => woodcruft.madeof === madeof);
+    const woodprods = Array.isArray(woodcrufts) && woodcrufts?.filter(woodcruft => woodcruft.madeof === madeof);
 
     return (
         <div>

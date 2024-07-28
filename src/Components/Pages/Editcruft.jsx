@@ -31,7 +31,7 @@ const Editcruft = () => {
             confirmButtonText: "Yes, Update it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addcruft/${_id}`, {
+                fetch(`https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft/${_id}`, {
                     method: 'PUT',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(updatedCruft),
