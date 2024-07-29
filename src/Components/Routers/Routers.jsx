@@ -22,14 +22,13 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Home></Home>,
-                
-                
+                element:<Home></Home>,    
             },
             {
                 path:'/allarts',
                 element:<Allarts></Allarts>,
-                loader:()=>fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft')
+                loader:()=> fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft')
+                // http://localhost:5000/addcruft
             },
             {
                 path:'/about',
