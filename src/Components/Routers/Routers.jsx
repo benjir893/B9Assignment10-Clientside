@@ -27,9 +27,10 @@ export const router = createBrowserRouter([
             {
                 path:'/allarts',
                 element:<Allarts></Allarts>,
-                loader:()=> fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft')
-                // https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft  
-                // https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft
+                loader:()=> fetch('https://serverside-khaki.vercel.app/addcruft')
+                // https://serverside-khaki.vercel.app/addcruft
+                // http://localhost:5000/addcruft
+                
             },
             {
                 path:'/about',
@@ -50,37 +51,37 @@ export const router = createBrowserRouter([
             {
                 path:'/editcruft/:id',
                 element:<Editcruft></Editcruft>,
-                loader:({params})=>fetch(`https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft/${params.id}`)
+                loader:({params})=>fetch(`https://serverside-khaki.vercel.app/addcruft/${params.id}`)
             },
             {
                 path:'/viewdetails/:id',
                 element:<Viewdetails></Viewdetails>,
-                loader:({params})=>fetch(`https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft/${params.id}`)
+                loader:({params})=>fetch(`https://serverside-khaki.vercel.app/addcruft/${params.id}`)
             },
             {
                 path:'/mylist',
-                loader:()=>fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft'),
+                loader:()=>fetch('https://serverside-khaki.vercel.app/addcruft'),
                 element:<PrivateRouters><Mylist></Mylist></PrivateRouters>,
             },
             {
                 path:'/woodhome',
-                loader:()=>fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft'),
+                loader:()=>fetch('https://serverside-khaki.vercel.app/addcruft'),
                 element:<Woodencruft></Woodencruft>,
             },
             {
                 path:'/jutecruft',
                 element:<Jutecruft></Jutecruft>,
-                loader:()=>fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft')
+                loader:()=>fetch('https://serverside-khaki.vercel.app/addcruft')
             },
             {
                 path:'/users',
                 element:<Users></Users>,
-                loader:()=>fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/users'),
+                loader:()=>fetch('https://serverside-khaki.vercel.app/users'),
             },
             {
                 path:'/users/:id',
                 element:<Navbar></Navbar>,
-                loader:({params})=>fetch(`https://serverside-6yuyllnwu-benjirs-projects.vercel.app/users/${params.id}`)
+                loader:({params})=>fetch(`https://serverside-khaki.vercel.app/users/${params.id}`)
             }
             
         ]

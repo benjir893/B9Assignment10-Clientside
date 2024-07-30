@@ -23,7 +23,7 @@ const Mylistdetails = ({ cruft, crufts, setCrufts }) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft/${_id}`,{
+              fetch(`https://serverside-khaki.vercel.app/addcruft/${_id}`,{
                 method:'DELETE'
               })
               .then(res =>res.json())
