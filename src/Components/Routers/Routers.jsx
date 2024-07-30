@@ -28,7 +28,8 @@ export const router = createBrowserRouter([
                 path:'/allarts',
                 element:<Allarts></Allarts>,
                 loader:()=> fetch('https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft')
-                // http://localhost:5000/addcruft
+                // https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft  
+                // https://serverside-6yuyllnwu-benjirs-projects.vercel.app/addcruft
             },
             {
                 path:'/about',

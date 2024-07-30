@@ -7,8 +7,8 @@ import { AuthContext } from "../../Apps/Authprovider";
 const Addcruft = () => {
     const { user } = useContext(AuthContext)
     const {email} = user;
-    const [catselect, setcatselect] = useState();
-    const [madeof, setmadeof] = useState();
+    const [catselect, setcatselect] = useState([]);
+    const [madeof, setmadeof] = useState([]);
 
     const handleadditem = e => {
         e.preventDefault();
